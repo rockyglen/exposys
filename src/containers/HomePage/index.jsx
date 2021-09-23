@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "../../components/navbar";
+import { Footer } from "../../components/footer";
+import { Marginer } from "../../components/marginer";
+import  Navbar  from "../../components/navbar";
 import {
   InnerPageContainer,
   PageContainer,
 } from "../../components/pageContainer";
 import { deviceSize } from "../../components/responsive";
-import TopSection from "./topSection";
-import ServiceCard from "../../components/serviceCard";
-import Services from "./services";
-import SpecialistAd from "../../components/specialistAd";
+import  SpecialistAd  from "../../components/specialistAd";
+import  Services  from "./services";
+import  TopSection  from "./topSection";
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -18,24 +19,28 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 1em;
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 5px;
+  }
 `;
 
-const HomePage = (props) => {
+ function HomePage(props) {
   return (
-    <div>
-      <PageContainer>
-        <TopSection>
-          <Navbar />
-        </TopSection>
-        <InnerPageContainer>
-          <ContentContainer>
-            <Services />
-          </ContentContainer>
-          <SpecialistAd />
-        </InnerPageContainer>
-      </PageContainer>
-    </div>
+    <PageContainer>
+      <TopSection>
+        <Navbar useTransparent />
+      </TopSection>
+      <InnerPageContainer>
+        <Marginer direction="vertical" margin="2em" />
+        <ContentContainer>
+          <Services />
+        </ContentContainer>
+        <Marginer direction="vertical" margin="5em" />
+        <SpecialistAd />
+      </InnerPageContainer>
+      <Footer />
+    </PageContainer>
   );
-};
+}
 
-export default HomePage;
+export default HomePage

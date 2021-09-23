@@ -15,9 +15,11 @@ const CardContainer = styled.div`
   margin: 0.5em;
   margin-bottom: 1.3em;
   transition: all 1s;
+
   :hover{
-    cursor: pointer;
-    width: 325px
+    width: 325px;
+    border-radius: 0.5em;
+
   }
 `;
 
@@ -28,7 +30,6 @@ const TopContainer = styled.div`
 const ServiceThumbnail = styled.div`
   width: 100%;
   height: 11em;
-
   img {
     width: 100%;
     height: 100%;
@@ -55,7 +56,7 @@ const BottomContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 19px;
+  font-size: 18px;
   margin: 0;
   font-weight: 500;
   color: #000;
@@ -69,7 +70,7 @@ const SpecialistName = styled.h4`
   font-weight: 400;
 `;
 
-const RaingContainer = styled.div`
+const RatingContainer = styled.div`
   display: flex;
   color: #ebe204;
 `;
@@ -81,24 +82,24 @@ const PriceContainer = styled.div`
 
 const PriceText = styled.div`
   margin-left: 3px;
-  color: #2BA679;
+  color: #2ba679;
   font-weight: 700;
 `;
 
 const StartingAtText = styled.h6`
   margin: 0;
-  color: rgba(161, 161, 161);
+  color: rgb(161, 161, 161);
   font-weight: 400;
 `;
 
-const ServiceCard = (props) => {
-  const { thumbnailUrl, specialist, id, title, rate, rating } = props;
+ function ServiceCard(props) {
+  const { thumbnailUrl, specialist,  title, rate, rating } = props;
 
   return (
     <CardContainer>
       <TopContainer>
         <ServiceThumbnail>
-          <img src={thumbnailUrl} alt={title}></img>
+          <img src={thumbnailUrl} alt={title} />
         </ServiceThumbnail>
       </TopContainer>
       <ContentContainer>
@@ -107,10 +108,10 @@ const ServiceCard = (props) => {
         <SpecialistName>{specialist.fullName}</SpecialistName>
       </ContentContainer>
       <BottomContainer>
-        <RaingContainer>
+        <RatingContainer>
           <FontAwesomeIcon icon={faStar} size="sm" />
           {rating}
-        </RaingContainer>
+        </RatingContainer>
         <PriceContainer>
           <StartingAtText>STARTING AT</StartingAtText>
           <PriceText>${rate}/hr</PriceText>
@@ -118,6 +119,6 @@ const ServiceCard = (props) => {
       </BottomContainer>
     </CardContainer>
   );
-};
+}
 
-export default ServiceCard;
+export default ServiceCard

@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 import LogoImg from "../../images/logos/logo.png";
+import { Link } from "react-router-dom";
 
 const BrandLogoContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const LogoImage = styled.div`
   width: ${({ size }) => (size ? size + "px" : "2em")};
   height: ${({ size }) => (size ? size + "px" : "2em")};
@@ -19,20 +21,34 @@ const LogoImage = styled.div`
 const LogoTitle = styled.h2`
   margin: 0;
   font-size: ${({ size }) => (size ? size + "px" : "20px")};
-  color: #fff;
-  font-weight: 700;
+  color: ${({ color }) => (color ? color : "#fff")};
+  font-weight: 900;
   margin-left: 6px;
 `;
-const BrandLogo = (props) => {
-  const { logoSize, textSize } = props;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+function BrandLogo(props) {
+  const { logoSize, textSize, color, hideLogo } = props;
+
   return (
     <BrandLogoContainer>
-      <LogoImage size={logoSize}>
-        <img src={LogoImg} alt="servycing logo"></img>
-      </LogoImage>
-      <LogoTitle size={textSize}>Servycing</LogoTitle>
+      {!hideLogo && (
+        <Link to="/">
+          <LogoImage size={logoSize}>
+            <img src={LogoImg} alt="Servycing logo" />
+          </LogoImage>
+        </Link>
+      )}
+      <StyledLink to="/">
+        <LogoTitle size={textSize} color={color}>
+          Servycing
+        </LogoTitle>
+      </StyledLink>
     </BrandLogoContainer>
   );
-};
+}
 
-export default BrandLogo;
+export default BrandLogo

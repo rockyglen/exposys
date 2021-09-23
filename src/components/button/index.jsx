@@ -12,21 +12,22 @@ const ButtonWrapper = styled.button`
   background-color: #2a9d8f;
   cursor: pointer;
   transition: all 200ms ease-in-out;
-
   &:hover {
-    background-color: #248b7f;
+    background-color: #21867a;
   }
-
   &:focus {
     outline: none;
   }
 `;
 
-export default function Button(props) {
+ function Button(props) {
   const { size } = props;
+
   return (
     <ButtonWrapper size={size} className={props.className}>
-      {props.children}{" "}
+      {props.children}
     </ButtonWrapper>
   );
 }
+
+export default Button
