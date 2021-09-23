@@ -9,6 +9,7 @@ import { deviceSize } from "../../components/responsive";
 import TopSection from "./topSection";
 import ServiceCard from "../../components/serviceCard";
 import Services from "./services";
+import SpecialistAd from "../../components/specialistAd";
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -16,6 +17,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 1em;
 `;
 
 const HomePage = (props) => {
@@ -29,6 +31,7 @@ const HomePage = (props) => {
           <ContentContainer>
             <Services />
           </ContentContainer>
+          <SpecialistAd />
         </InnerPageContainer>
       </PageContainer>
     </div>
